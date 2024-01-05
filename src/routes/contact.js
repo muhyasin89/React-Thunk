@@ -1,4 +1,4 @@
-export const contact = {
+export  const contact = {
     first: "Your",
     last: "Name",
     avatar: "https://placekitten.com/g/200/200",
