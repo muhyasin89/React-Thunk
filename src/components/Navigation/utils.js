@@ -16,3 +16,4 @@ export function hasChildren(item) {
     return true;
   }
   
+export const drawerWidth = 240;
