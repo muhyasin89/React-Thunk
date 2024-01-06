@@ -1,19 +1,15 @@
 import Box from "@mui/material/Box";
-
-
-
-import { useNavigation } from "../state/navigation"
+import Navigation from "../components/Navigation/Index";
 
 
 function MainLayout({children}) {
-    const open = useNavigation((state)=> state.open);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      
+    <>
+        <Navigation />
         {children}
       
-    </Box>
+    </>
   );
 }
 
