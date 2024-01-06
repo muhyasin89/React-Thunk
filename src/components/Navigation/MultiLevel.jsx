@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { List, ListItem, ListItemIcon, ListItemText, Collapse } from '@mui/material';
 
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import {useNavigation} from "../../state/navigation";
 import MenuItem from "./MenuItem";
 import {iconGenerator} from "./icons"
 
 function MultiLevel({ item }) {
     const { items: children } = item;
-    const open = useNavigation((state) =>  state.open)
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+      setOpen((prev) => !prev);
+    };
+  
     
-    const handleClick =useNavigation((state) =>  state.handleDrawer)
   
     return (
       <React.Fragment>
