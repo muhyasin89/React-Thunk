@@ -1,10 +1,17 @@
 import Typography from "@mui/material/Typography";
 import MainLayout from "../layouts/MainLayout";
+import { useNavigation } from "../state/navigation";
 
-const Dashboard = () => {
+function Dashboard() {
+  const open = useNavigation((state) => state.open);
+  const test = true;
+
   return (
     <MainLayout>
-      Dashboard
+      <h4>
+        Dashboard {open} test: {test}
+      </h4>
+
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
@@ -35,6 +42,6 @@ const Dashboard = () => {
       </Typography>
     </MainLayout>
   );
-};
+}
 
 export default Dashboard;

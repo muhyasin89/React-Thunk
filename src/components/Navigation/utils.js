@@ -1,3 +1,5 @@
+import {iconGenerator} from "./icons"
+
 export function hasChildren(item) {
     const { items: children } = item;
   
@@ -17,3 +19,10 @@ export function hasChildren(item) {
   }
   
 export const drawerWidth = 240;
+
+export const isContainsIcon = (args) => {
+  if(args != undefined ){
+    return iconGenerator(args);
+  }
+  return "";
+}

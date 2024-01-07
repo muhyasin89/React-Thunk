@@ -5,7 +5,8 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import MenuItem from "./MenuItem";
-import {iconGenerator} from "./icons"
+import {isContainsIcon} from "./utils";
+
 
 function MultiLevel({ item }) {
     const { items: children } = item;
@@ -20,7 +21,7 @@ function MultiLevel({ item }) {
     return (
       <React.Fragment>
         <ListItem button onClick={handleClick}>
-          <ListItemIcon>{item.icon ? iconGenerator(item?.icon) : "" }</ListItemIcon>
+          <ListItemIcon>{() => isContainsIcon(item.icon) }</ListItemIcon>
           <ListItemText primary={item.title} />
           {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </ListItem>

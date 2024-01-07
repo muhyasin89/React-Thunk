@@ -3,10 +3,12 @@ import {ListItem, ListItemIcon, ListItemText} from '@mui/material';
 
 import {iconGenerator} from "./icons"
 
+import {isContainsIcon} from "./utils";
+
 function SingleLevel({ item }) {
   return (
     <ListItem button>
-      <ListItemIcon>{item.icon ? iconGenerator(item?.icon): ""}</ListItemIcon>
+      <ListItemIcon>{() => isContainsIcon(item.icon)}</ListItemIcon>
       <ListItemText primary={item.title} />
     </ListItem>
   );
