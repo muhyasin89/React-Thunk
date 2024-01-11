@@ -1,8 +1,5 @@
 
 import {ListItem, ListItemIcon, ListItemText} from '@mui/material';
-
-import {iconGenerator} from "./icons"
-
 import {isContainsIcon} from "./utils";
 
 function SingleLevel({ item }) {

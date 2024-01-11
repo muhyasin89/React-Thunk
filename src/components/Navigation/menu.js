@@ -3,83 +3,89 @@ export const menu = [
   {
     icon: "home",
     title: "Home",
+    to: "/",
     items: []
   },
   {
     icon: "library",
-    title: "Education",
+    title: "Portofolio",
     items: [
       {
-        title: "Technical Analysis",
+        title: "Website",
         items: [
           {
-            title: "The Dow Theory",
+            title: "Golang",
             to: "/thedowtheory"
           },
           {
-            title: "Charts & Chart Patterns",
+            title: "C#",
             to: "/chart"
           },
           {
-            title: "Trend & Trend Lines",
+            title: "PHP",
+            to: "/chart"
+          },
+          {
+            title: "Python",
             to: "/trendlines"
           },
           {
-            title: "Support & Resistance",
+            title: "Javascript & Typescript",
             to: "/sandr"
           }
         ]
       },
       {
-        title: "Fundamental Analysis",
+        title: "Mobile",
         items: [
           {
-            title: "The Dow Theory",
+            title: "Flutter",
             to: "/thedowtheory"
           },
           {
-            title: "Charts & Chart Patterns",
+            title: "Kotlin",
             to: "/chart"
-          },
-          {
-            title: "Trend & Trend Lines",
-            to: "/trendlines"
-          },
-          {
-            title: "Support & Resistance",
-            to: "/sandr"
           }
         ]
       },
       {
-        title: "Elliot Wave Analysis",
+        title: "DevOps",
         items: [
           {
-            title: "The Dow Theory",
+            title: "AWS",
             to: "/thedowtheory"
           },
           {
-            title: "Charts & Chart Patterns",
+            title: "Others",
             to: "/chart"
           },
-          {
-            title: "Trend & Trend Lines",
-            to: "/trendlines"
-          },
-          {
-            title: "Support & Resistance",
-            to: "/sandr"
-          }
         ]
-      }
+      },
+      {
+      title: "Games Related",
+      items: [
+        {
+          title: "Core Games",
+          to: "/thedowtheory"
+        },
+        {
+          title: "Unity",
+          to: "/chart"
+        },
+        {
+          title: "Blender",
+          to: "/chart"
+        },
+      ]
+    }
     ]
   },
   {
     icon: "trending",
-    title: "Options"
+    title: "Post"
   },
   {
     icon: "description",
-    title: "Blog"
+    title: "User"
   }
 ];
