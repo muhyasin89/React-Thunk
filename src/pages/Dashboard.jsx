@@ -4,12 +4,11 @@ import { useNavigation } from "../state/navigation";
 
 function Dashboard() {
   const open = useNavigation((state) => state.open);
-  const test = true;
 
   return (
     <MainLayout>
       <h4>
-        Dashboard {open} test: {test}
+        Dashboard {open}
       </h4>
 
       <Typography paragraph>
