@@ -1,10 +1,9 @@
-
 export const menu = [
   {
     icon: "home",
     title: "Home",
     to: "/",
-    items: []
+    items: [],
   },
   {
     icon: "library",
@@ -15,77 +14,91 @@ export const menu = [
         items: [
           {
             title: "Golang",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
           },
           {
             title: "C#",
-            to: "/chart"
+            to: "/chart",
           },
           {
             title: "PHP",
-            to: "/chart"
+            to: "/chart",
           },
           {
             title: "Python",
-            to: "/trendlines"
+            to: "/trendlines",
           },
           {
             title: "Javascript & Typescript",
-            to: "/sandr"
-          }
-        ]
+            to: "/sandr",
+          },
+        ],
       },
       {
         title: "Mobile",
         items: [
           {
             title: "Flutter",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
           },
           {
             title: "Kotlin",
-            to: "/chart"
-          }
-        ]
+            to: "/chart",
+          },
+        ],
       },
       {
         title: "DevOps",
         items: [
           {
             title: "AWS",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
           },
           {
             title: "Others",
-            to: "/chart"
+            to: "/chart",
           },
-        ]
+        ],
       },
       {
-      title: "Games Related",
-      items: [
-        {
-          title: "Core Games",
-          to: "/thedowtheory"
-        },
-        {
-          title: "Unity",
-          to: "/chart"
-        },
-        {
-          title: "Blender",
-          to: "/chart"
-        },
-      ]
-    }
-    ]
+        title: "Games Related",
+        items: [
+          {
+            title: "Core Games",
+            to: "/thedowtheory",
+          },
+          {
+            title: "Unity",
+            to: "/chart",
+          },
+          {
+            title: "Blender",
+            to: "/chart",
+          },
+        ],
+      },
+
+      {
+        title: "Management",
+        items: [
+          {
+            title: "Project Manager",
+            to: "/thedowtheory",
+          },
+          {
+            title: "Solution Architect",
+            to: "/chart",
+          },
+        ],
+      },
+    ],
   },
   {
     icon: "trending",
-    title: "Post"
+    title: "Post",
   },
   {
     icon: "description",
-    title: "User"
-  }
+    title: "User",
+  },
 ];
