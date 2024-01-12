@@ -6,6 +6,16 @@ export const menu = [
     items: [],
   },
   {
+    icon: "trending",
+    to: "/post",
+    title: "Post",
+  },
+  {
+    icon: "description",
+    to: "/user",
+    title: "User",
+  },
+  {
     icon: "library",
     title: "Portofolio",
     items: [
@@ -89,16 +99,12 @@ export const menu = [
             title: "Solution Architect",
             to: "/chart",
           },
+          {
+            title: "Tech Lead",
+            to: "/chart",
+          },
         ],
       },
     ],
-  },
-  {
-    icon: "trending",
-    title: "Post",
-  },
-  {
-    icon: "description",
-    title: "User",
-  },
+  }
 ];
