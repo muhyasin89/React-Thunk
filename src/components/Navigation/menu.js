@@ -7,12 +7,12 @@ export const menu = [
   },
   {
     icon: "trending",
-    to: "/post",
+    to: "/posts",
     title: "Post",
   },
   {
     icon: "description",
-    to: "/user",
+    to: "/users",
     title: "User",
   },
   {

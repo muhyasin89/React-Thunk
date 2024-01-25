@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import  Dashboard  from "./pages/Dashboard";
-import  Login  from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+
 import NotFound from "./pages/NotFound"
+import Posts from "./pages/Posts";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
     </nav>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/posts" element={<Posts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
