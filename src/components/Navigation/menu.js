@@ -55,6 +55,10 @@ export const menu = [
             title: "Kotlin",
             to: "/chart",
           },
+          {
+            title: "React Native",
+            to: "/chart",
+          },
         ],
       },
       {
@@ -74,7 +78,7 @@ export const menu = [
         title: "Games Related",
         items: [
           {
-            title: "Core Games",
+            title: "Unreal Engine",
             to: "/thedowtheory",
           },
           {
