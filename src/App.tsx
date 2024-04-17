@@ -6,12 +6,11 @@ import Posts from "./pages/Posts/Index";
 import Users from "./pages/Users";
 import AddForm from "./pages/Posts/Add";
 
+
+
 function App() {
   return (
     <>
-    <nav>
-      <ul></ul>
-    </nav>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
@@ -19,7 +18,7 @@ function App() {
         <Route path="/posts/add" element={<AddForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+      </>
   );
 }
 
