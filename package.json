@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/react-utils": "2.0.5",
+    "@chakra-ui/utils": "2.0.8",
+    "@choc-ui/chakra-autocomplete": "^5.4.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@onedoc/react-print": "^0.1.131",

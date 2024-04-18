@@ -8,7 +8,8 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import RootLayout from "./layouts/RootLayout";
 import Dashboard from "./pages/Dashboard";
-import { ProtectedRoute } from "./middleware/protectedRouter";
+
+//import { ProtectedRoute } from "./middleware/protectedRouter";
 
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
-            <Route element={<ProtectedRoute />}>
+            {/* <Route element={<ProtectedRoute />}> */}
               <Route path="dashboard" element={<Dashboard /> } />
-            </Route>
+            {/* </Route> */}
         </Route>
        
 
