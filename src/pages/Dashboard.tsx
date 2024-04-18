@@ -1,7 +1,13 @@
+import AdminLayout from "../layouts/AdminLayout"
+
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <AdminLayout>
+      Dashboard
+    </AdminLayout>
+      
+    
   )
 }
 
