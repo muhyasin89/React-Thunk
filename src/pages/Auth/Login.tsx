@@ -31,55 +31,62 @@ function Login() {
       <Avatar bg="teal.500" />
       <Heading color="teal.400">Login</Heading>
       <Box minW={{ base: "90%", md: "468px" }}>
-        <form>
-          <Stack
-            spacing={4}
-            p="1rem"
-            backgroundColor="whiteAlpha.900"
-            boxShadow="md"
-          >
-           <FormControl>
-           <InputLeftElement
-                  pointerEvents="none"
-                  children={<CFaUserAlt color="gray.300" />}
-                />
-                <Input type="email" placeholder="email address" />
-           </FormControl>
-             
-        
-            <FormControl>
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents="none"
-                  color="gray.300"
-                  children={<CFaLock color="gray.300" />}
-                />
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                    {showPassword ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-              <FormHelperText textAlign="right">
-                <Link>forgot password?</Link>
-              </FormHelperText>
-            </FormControl>
-            <Button
-              borderRadius={0}
-              type="submit"
-              variant="solid"
-              colorScheme="teal"
-              width="full"
+          <form>
+            <Stack
+              spacing={4}
+              p="1rem"
+              backgroundColor="whiteAlpha.900"
+              boxShadow="md"
             >
-              Login
-            </Button>
-          </Stack>
-        </form>
-      </Box>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={<CFaUserAlt color="gray.300" />}
+                  />
+                  <Input type="email" placeholder="email address" />
+                </InputGroup>
+              </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    color="gray.300"
+                    children={<CFaLock color="gray.300" />}
+                  />
+                  <Input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                      {showPassword ? "Hide" : "Show"}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+                <FormHelperText textAlign="right">
+                  <Link>forgot password?</Link>
+                </FormHelperText>
+              </FormControl>
+              <Button
+                borderRadius={0}
+                type="submit"
+                variant="solid"
+                colorScheme="teal"
+                width="full"
+              >
+                Login
+              </Button>
+            </Stack>
+
+            <Box>
+            New to us?
+            <Link color="teal.500" href="/register">
+                Sign Up
+            </Link>
+            </Box>
+          </form>
+        </Box>
     </AuthLayout>
   );
 }

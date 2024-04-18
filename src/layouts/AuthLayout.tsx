@@ -1,9 +1,8 @@
-import { Flex, Stack, Box, Link } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 
 function AuthLayout({ children }) {
   return (
-    <Box minW={{ base: "100%"}}>
-        <Flex
+    <Flex
       flexDirection="column"
       width="100wh"
       height="100vh"
@@ -21,8 +20,6 @@ function AuthLayout({ children }) {
       </Stack>
      
     </Flex>
-    </Box>
-    
   );
 }
 
