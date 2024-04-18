@@ -37,6 +37,7 @@ import { IconType } from 'react-icons'
 import { PhoneIcon } from '@chakra-ui/icons'
 
 import HublangMenu from '../components/NavigationItem/HublangMenu'
+import TeknikMenu from '../components/NavigationItem/TeknikMenu'
 
 interface LinkItemProps {
   name: string
@@ -88,6 +89,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       ))}
        <Box ml="8">
        <PhoneIcon mr="2"/> <HublangMenu/>
+       
+       </Box>
+
+       <Box ml="8">
+       <PhoneIcon mr="2"/> <TeknikMenu/>
        
        </Box>
        {LinkItemsAfter.map((link) => (
