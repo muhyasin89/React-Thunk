@@ -4,19 +4,17 @@ import { useEffect } from "react";
 import { useUser } from "../state/user";
 
 export const ProtectedRoute = () => {
-    const navigate = useNavigate();
-     const isAuthenticated = useUser((state) => state.isAuthenticated);
-    
-    // console.log("isAuthenticated", isAuthenticated)
+  const navigate = useNavigate();
+  const isAuthenticated = useUser((state) => state.isAuthenticated);
 
-    useEffect(() => {
-        // Call navigate() when the component mounts
-        if (!isAuthenticated) {
-            navigate('/login');
-        }
-}); 
- 
-    return (
-        <RootLayout />
-    )
-}
+  // console.log("isAuthenticated", isAuthenticated)
+
+  useEffect(() => {
+    // Call navigate() when the component mounts
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  });
+
+  return <RootLayout />;
+};
