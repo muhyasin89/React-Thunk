@@ -38,6 +38,9 @@ import { PhoneIcon } from '@chakra-ui/icons'
 
 import HublangMenu from '../components/NavigationItem/HublangMenu'
 import TeknikMenu from '../components/NavigationItem/TeknikMenu'
+import { useUserStore } from '../state/user'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 interface LinkItemProps {
   name: string
@@ -140,7 +143,28 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   )
 }
 
+
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const { removeToken, removeRefreshToken, removeName } = useUserStore()
+  const navigate = useNavigate();
+  const logout = () => {
+
+    try{
+
+    }catch(err){
+      toast.error(JSON.stringify(err.msg), {
+        position: "top-right",
+      })
+    }
+      removeToken();
+      removeRefreshToken();
+      removeName()
+      toast.success("You Are Successfully Logout !", {
+        position: "top-right",
+      });
+      navigate("/login");
+  }
+
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -200,9 +224,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               borderColor={useColorModeValue('gray.200', 'gray.700')}>
               <MenuItem>Profile</MenuItem>
               <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={() => logout()}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

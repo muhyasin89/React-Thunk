@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { toast } from "react-toastify";
 import axios from "../../facade/axios";
 import {
@@ -22,7 +22,7 @@ import AuthLayout from "../../layouts/AuthLayout";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import AlertError from "../../components/AlertError";
-import { useAppStore } from "../../state/app";
+
 import { useUserStore } from "../../state/user";
 import errorAxios from "../../facade/axiosError";
 import { useNavigate } from "react-router-dom";
@@ -40,11 +40,12 @@ function Login() {
     password: Yup.string().required("Required"),
   });
 
-  const setLoading = useAppStore((state) => state.setLoading);
-  const isLoading = useAppStore((state) => state.loading);
+  const [isLoading, setLoading] = useState(false)
   const { setToken, setRefreshToken } = useUserStore();
   const navigate = useNavigate();
 
+
+  
   return (
     <AuthLayout>
       <Avatar bg="teal.500" />
@@ -60,10 +61,8 @@ function Login() {
           validationSchema={LoginSchema}
           onSubmit={(values) => {
             // same shape as initial values
-
+            setLoading(true);
             try {
-              setLoading(true);
-
               axios
                 .post("token/", {
                   username: values.username,
@@ -87,7 +86,7 @@ function Login() {
 
                 setLoading(false);
             } catch (err) {
-              setLoading(false);
+              
               toast.error(JSON.stringify(err?.msg), {
                 position: "top-right",
               });

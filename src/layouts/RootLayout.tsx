@@ -1,6 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
 
 function RootLayout() {
   return (
@@ -8,7 +8,19 @@ function RootLayout() {
       <SimpleGrid columns={1}>
         <Outlet />
       </SimpleGrid>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        transition={Bounce}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
