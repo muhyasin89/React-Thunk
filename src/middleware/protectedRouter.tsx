@@ -5,7 +5,8 @@ import { useUserStore } from "../state/user";
 
 export const ProtectedRoute = () => {
   const navigate = useNavigate();
-  const isAuthenticated = useUserStore((state) => state.isAuthenticated);
+  const token = useUserStore((state) => state.token);
+  const isAuthenticated = token != "" ? true : false;
 
   // console.log("isAuthenticated", isAuthenticated)
 

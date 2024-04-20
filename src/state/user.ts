@@ -1,23 +1,24 @@
-import { create } from 'zustand'
-import computed from "zustand-computed"
 
 
-const computeLogin = (state) => ({
-    isLogin: state.token !== "" && state.refreshToken !== "",
-  })
+import { create } from "zustand";
 
-export const useUserStore = create(
-    computed(
-    (set, get) => ({
-        token: "",
-        refreshToken: "",
-        isAuthenticate: false,
-        updateIsAuthenticate: () => set(() => ({isAuthenticate: get().isLogin})),
-        updateToken: (newToken: string) => set((state) => ({...state, token: newToken})),
-        removeToken: () => set({token: ""}),
-        updateRefreshToken: (newRefreshToken: string ) => set((state) => ({...state, refreshToken: newRefreshToken})),
-        removeRefreshToken: () => set({refreshToken: ""}) 
-    }),
-    computeLogin
-    )
-);
+type State = {
+  token: string;
+  refreshToken: string;
+};
+
+type Action = {
+  setToken: (token: State['token'])  => void;
+  removeToken: () => void;
+  setRefreshToken: (refreshToken: State['refreshToken'])  => void;
+  removeRefreshToken: () => void;
+};
+
+export const useUserStore = create<State & Action>((set) => ({
+  token: "",
+  refreshToken: "",
+  setToken: (tokenArgs:string) => set({ token: tokenArgs }),
+  removeToken: () => set({token: ""}),
+  setRefreshToken: (refreshTokenArgs: string) => set({ refreshToken: refreshTokenArgs }),
+  removeRefreshToken: () => set({refreshToken: ""})
+}));

@@ -8,8 +8,8 @@ import { useUserStore } from "../state/user";
 axios.interceptors.request.use(
   (config) => {
     console.log("axios", config);
-    const userState = useUserStore();
-    const token = userState.token;
+    
+    const token = useUserStore((state) => state.token);
 
     if (token) {
       config.headers["Authorization"] = "Bearer " + token;
@@ -28,7 +28,7 @@ axios.interceptors.response.use(
   function (error) {
     const originalRequest = error.config;
     const navigate = useNavigate();
-    const userState = useUserStore();
+    const {token, refreshToken, setToken, setRefreshToken} = useUserStore();
 
     if (
       error.response.status === 401 &&
@@ -40,20 +40,20 @@ axios.interceptors.response.use(
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
-      const refreshToken = userState.token;
+
       return axios
         .post("token/refresh/", {
           access: refreshToken,
         })
         .then((res) => {
           if (res.status === 201) {
-            const token = res.data.token;
-            const refreshToken = res.data.refreshToken;
+            const tokenRes = res.data.token;
+            const refreshTokenRes = res.data.refreshToken;
 
-            userState.updateToken(token);
-            userState.updateRefreshToken(refreshToken);
+            setToken(tokenRes);
+            setRefreshToken(refreshTokenRes);
             axios.defaults.headers.common["Authorization"] =
-              "Bearer " + userState.token;
+              "Bearer " + token;
             return axios(originalRequest);
           }
         });

@@ -23,8 +23,9 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import AlertError from "../../components/AlertError";
 import { useAppStore } from "../../state/app";
-import {  useUserStore } from "../../state/user";
+import { useUserStore } from "../../state/user";
 import errorAxios from "../../facade/axiosError";
+import { useNavigate } from "react-router-dom";
 
 // const CFaUserAlt = chakra(FaUserAlt);
 // const CFaLock = chakra(FaLock);
@@ -39,15 +40,17 @@ function Login() {
     password: Yup.string().required("Required"),
   });
 
-  const setLoading = useAppStore((state)=> state.setLoading);
-  const isLoading = useAppStore((state)=> state.loading);
-  const {token, refreshToken, updateToken, updateRefreshToken} = useUserStore()
-
+  const setLoading = useAppStore((state) => state.setLoading);
+  const isLoading = useAppStore((state) => state.loading);
+  const { setToken, setRefreshToken } = useUserStore();
+  const navigate = useNavigate();
 
   return (
     <AuthLayout>
       <Avatar bg="teal.500" />
+
       <Heading color="teal.400">Login</Heading>
+
       <Box minW={{ base: "90%", md: "468px" }}>
         <Formik
           initialValues={{
@@ -57,34 +60,34 @@ function Login() {
           validationSchema={LoginSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            
+
             try {
-              setLoading(true)
-     
+              setLoading(true);
+
               axios
                 .post("token/", {
                   username: values.username,
                   password: values.password,
                 })
                 .then((response) => {
-                  
-
                   // console.log("data",response.data)
-                  const tokenRes :string= response.data.access;
-                  const refreshTokenRes :string= response.data.refresh;
-                  console.log("token", tokenRes, refreshTokenRes)
-                  updateToken(tokenRes);
-                  updateRefreshToken(refreshTokenRes);
-                  
-                  console.log("userState", token, refreshToken);
-                }).catch((error)=>{
+                  const tokenRes: string = response.data.access;
+                  const refreshTokenRes: string = response.data.refresh;
+                  //console.log("token", tokenRes, refreshTokenRes)
+                  setToken(tokenRes);
+                  setRefreshToken(refreshTokenRes);
+                  setLoading(false);
+                  navigate('/dashboard')
+                  // console.log("userState", token, refreshToken);
+                })
+                .catch((error) => {
                   console.log("err", error);
                   errorAxios(error);
                 });
 
                 setLoading(false);
             } catch (err) {
-              setLoading(false)
+              setLoading(false);
               toast.error(JSON.stringify(err?.msg), {
                 position: "top-right",
               });
