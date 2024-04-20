@@ -64,5 +64,8 @@ axios.interceptors.response.use(
 
 
 export default axios.create({
-    baseURL: import.meta.env.VITE_API_URL + "/api/"
+    baseURL: import.meta.env.VITE_API_URL + "/api/",
+    headers: {
+        "Content-type": "application/json"
+      }
 })

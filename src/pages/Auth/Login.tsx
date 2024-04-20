@@ -59,11 +59,11 @@ function Login() {
             password: "",
           }}
           validationSchema={LoginSchema}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
             // same shape as initial values
             setLoading(true);
             try {
-              axios
+              await axios
                 .post("token/", {
                   username: values.username,
                   password: values.password,
@@ -73,6 +73,8 @@ function Login() {
                   const tokenRes: string = response.data.access;
                   const refreshTokenRes: string = response.data.refresh;
                   //console.log("token", tokenRes, refreshTokenRes)
+                  axios.defaults.headers.common["Authorization"] =
+                  "Bearer " + tokenRes;
                   setToken(tokenRes);
                   setRefreshToken(refreshTokenRes);
                   setLoading(false);
@@ -87,7 +89,7 @@ function Login() {
                 setLoading(false);
             } catch (err) {
               
-              toast.error(JSON.stringify(err?.msg), {
+              toast.error(JSON.stringify(err), {
                 position: "top-right",
               });
             }

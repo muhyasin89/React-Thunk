@@ -1,26 +1,33 @@
-// import { useEffect } from "react";
 import AdminLayout from "../layouts/AdminLayout";
-import { Heading , Highlight}  from "@chakra-ui/react";
-import { useUserStore } from "../state/user";
+import { Heading, Highlight, Text } from "@chakra-ui/react";
+
+import BoxSpinner from "../components/BoxSpinner";
+import { useGetMe } from "../features/dashboard/useGetMe";
 
 function Dashboard() {
-  const name = useUserStore((state) => state.name)
-  // useEffect(() => {
-  //   
-  // })
+  const { data: user, isLoading, isError, error } = useGetMe();
 
-  return (
-    <AdminLayout>
+  let content;
+  if (isLoading) {
+    content = <BoxSpinner />;
+  } else if (isError) {
+    <Text>Error: {error}</Text>;
+  } else {
+    content = (
       <Heading lineHeight="tall">
-        <Highlight
-          query={name}
-          styles={{ px: "2", py: "1", rounded: "full", bg: "red.100" }}
-        >
-         Welcome Back {{name}}!
-        </Highlight>
+        {user?.map((item) => (
+          <Highlight
+            query="test"
+            styles={{ px: "2", py: "1", rounded: "full", bg: "red.100" }}
+          >
+            Welcome Back {item.username}!
+          </Highlight>
+        ))}
       </Heading>
-    </AdminLayout>
-  );
+    );
+  }
+
+  return <AdminLayout>{content}</AdminLayout>;
 }
 
 export default Dashboard;
