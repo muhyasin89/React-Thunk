@@ -1,6 +1,14 @@
 import { create } from "zustand";
 
-export const useApp = create((set) => ({
+type State = {
+  loading: boolean
+}
+
+type Action = {
+  setLoading: (loading: State['loading']) => void
+}
+
+export const useAppStore = create<State & Action>((set) => ({
   loading: false,
-  changeLoading: () => set((state) => ({ loading: !state.loading })),
+  setLoading: (loading:boolean) => set(() => ({ loading: !loading })),
 }));

@@ -1,12 +1,16 @@
-import { SimpleGrid } from '@chakra-ui/react'
-import { Outlet } from 'react-router-dom'
+import { SimpleGrid } from "@chakra-ui/react";
+import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function RootLayout() {
   return (
-    <SimpleGrid columns={1} >
+    <>
+      <SimpleGrid columns={1}>
         <Outlet />
-    </SimpleGrid>
-  )
+      </SimpleGrid>
+      <ToastContainer />
+    </>
+  );
 }
 
-export default RootLayout
+export default RootLayout;

@@ -6,16 +6,16 @@ const computeLogin = (state) => ({
     isLogin: state.token !== "" && state.refreshToken !== "",
   })
 
-export const useUser = create(
+export const useUserStore = create(
     computed(
     (set, get) => ({
         token: "",
         refreshToken: "",
         isAuthenticate: false,
         updateIsAuthenticate: () => set(() => ({isAuthenticate: get().isLogin})),
-        updateToken: (newToken) => set({token: newToken}),
+        updateToken: (newToken: string) => set((state) => ({...state, token: newToken})),
         removeToken: () => set({token: ""}),
-        updateRefreshToken: (newRefreshToken) => set({refreshToken: newRefreshToken}),
+        updateRefreshToken: (newRefreshToken: string ) => set((state) => ({...state, refreshToken: newRefreshToken})),
         removeRefreshToken: () => set({refreshToken: ""}) 
     }),
     computeLogin

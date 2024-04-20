@@ -10,10 +10,7 @@ import {
   Avatar,
   FormControl,
   chakra,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
+
 } from "@chakra-ui/react";
 
 import { FaUserAlt } from "react-icons/fa";
@@ -21,6 +18,7 @@ import AuthLayout from "../../layouts/AuthLayout";
 
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import AlertError from "../../components/AlertError";
 
 const CFaUserAlt = chakra(FaUserAlt);
 
@@ -95,11 +93,7 @@ function Register() {
                     />
                   </InputGroup>
                   {errors.nama && touched.nama ? (
-                    <Alert status="error">
-                      <AlertIcon />
-                      <AlertTitle>Your Field Name is Error</AlertTitle>
-                      <AlertDescription>{errors.nama}</AlertDescription>
-                    </Alert>
+                    <AlertError nameField="nama" errorField={errors.nama} />
                   ) : null}
                 </FormControl>
 
@@ -117,11 +111,7 @@ function Register() {
                     />
                   </InputGroup>
                   {errors.username && touched.username ? (
-                    <Alert status="error">
-                      <AlertIcon />
-                      <AlertTitle>Your Field username is Error</AlertTitle>
-                      <AlertDescription>{errors.username}</AlertDescription>
-                    </Alert>
+                    <AlertError nameField="username" errorField={errors.username} />
                   ) : null}
                 </FormControl>
 
@@ -139,11 +129,8 @@ function Register() {
                     />
                   </InputGroup>
                   {errors.email && touched.email ? (
-                    <Alert status="error">
-                      <AlertIcon />
-                      <AlertTitle>Your Field email is Error</AlertTitle>
-                      <AlertDescription>{errors.email}</AlertDescription>
-                    </Alert>
+                    <AlertError nameField="email" errorField={errors.email} />
+                
                   ) : null}
                 </FormControl>
 
@@ -160,12 +147,9 @@ function Register() {
                       placeholder="password"
                     />
                   </InputGroup>
+                  
                   {errors.password && touched.password ? (
-                    <Alert status="error">
-                      <AlertIcon />
-                      <AlertTitle>Field Password is Error</AlertTitle>
-                      <AlertDescription>{errors.password}</AlertDescription>
-                    </Alert>
+                     <AlertError nameField="password" errorField={errors.password} />
                   ) : null}
                 </FormControl>
 
@@ -183,11 +167,7 @@ function Register() {
                     />
                   </InputGroup>
                   {errors.confirmPassword && touched.confirmPassword ? (
-                    <Alert status="error">
-                      <AlertIcon />
-                      <AlertTitle>Confirm Password Field is Error</AlertTitle>
-                      <AlertDescription>{errors.confirmPassword}</AlertDescription>
-                    </Alert>
+                    <AlertError nameField="confirmPassword" errorField={errors.confirmPassword} />
                   ) : null}
                 </FormControl>
 

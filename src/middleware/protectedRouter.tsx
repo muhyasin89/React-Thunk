@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import { useEffect } from "react";
-import { useUser } from "../state/user";
+import { useUserStore } from "../state/user";
 
 export const ProtectedRoute = () => {
   const navigate = useNavigate();
-  const isAuthenticated = useUser((state) => state.isAuthenticated);
+  const isAuthenticated = useUserStore((state) => state.isAuthenticated);
 
   // console.log("isAuthenticated", isAuthenticated)
 

@@ -16,6 +16,8 @@ import RABList from "./pages/Teknik/RABList";
 import BarangForm from "./pages/Teknik/BarangForm";
 import BarangList from "./pages/Teknik/BarangList";
 import RABForm from "./pages/Teknik/RABForm";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -42,9 +44,8 @@ function App() {
               </Route>
             </Route>
         </Route>
-       
-
       </Routes>
+     
     </ChakraProvider>
   );
 }
